@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 
 
 using FFMpegCore;
@@ -33,6 +33,8 @@ await using var fileStream = File.OpenRead(@"C:\Users\Jonat\Desktop\Test.txt");
         await image.SaveAsBmpAsync(fileName);
         
         filenames.Add(fileName);
+
+        buffer = new byte[2000];
     }
 }
 
