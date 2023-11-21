@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encoder", "Encoder\Encoder.csproj", "{DCCE73EA-7114-4075-8AC1-E4307333DE22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decoder", "Decoder\Decoder.csproj", "{055A02A0-1005-4C91-B8F8-E9CCF44B0784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decoder.tests", "Decoder.tests\Decoder.tests.csproj", "{97EF4CFB-5239-476F-8D51-9ACB28E802E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{DCCE73EA-7114-4075-8AC1-E4307333DE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCCE73EA-7114-4075-8AC1-E4307333DE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCCE73EA-7114-4075-8AC1-E4307333DE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{055A02A0-1005-4C91-B8F8-E9CCF44B0784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055A02A0-1005-4C91-B8F8-E9CCF44B0784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055A02A0-1005-4C91-B8F8-E9CCF44B0784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055A02A0-1005-4C91-B8F8-E9CCF44B0784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
