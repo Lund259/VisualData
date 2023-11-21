@@ -9,7 +9,8 @@ using ZXing.Common;
 
 var filenames = new List<string>();
 
-await using var fileStream = File.OpenRead(@"C:\Users\Jonat\Desktop\Test.txt");
+var inputFile = new FileInfo(@"C:\Users\Jonat\Desktop\Test2.txt");
+await using var fileStream = inputFile.OpenRead();
 {
     var buffer = new byte[2000];
 
@@ -38,5 +39,5 @@ await using var fileStream = File.OpenRead(@"C:\Users\Jonat\Desktop\Test.txt");
     }
 }
 
-FFMpeg.JoinImageSequence("joined_video.mp4", 30D, filenames.ToArray());
+FFMpeg.JoinImageSequence($"{inputFile.Name}.mp4", 30D, filenames.ToArray());
 filenames.ForEach(x => new FileInfo(x).Delete());
