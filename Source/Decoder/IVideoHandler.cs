@@ -1,8 +1,6 @@
-﻿using OpenCvSharp;
-
-namespace Decoder;
+﻿namespace Decoder;
 
 public interface IVideoHandler
 {
-    public InputArray GetFrames(string videoPath);
+    public List<string> GetFrames(string videoPath);
 }

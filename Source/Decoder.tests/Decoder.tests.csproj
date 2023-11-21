@@ -22,7 +22,18 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Binaries\Binaries.csproj" />
       <ProjectReference Include="..\Decoder\Decoder.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\joined_video.mp4">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

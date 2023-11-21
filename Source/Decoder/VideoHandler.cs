@@ -1,25 +1,19 @@
-﻿using OpenCvSharp;
+﻿using System.Diagnostics;
+using System.Drawing;
+using FFMpegCore;
 
 namespace Decoder;
 
 public class VideoHandler: IVideoHandler
 {
-    public InputArray GetFrames(string videoPath)
+    public List<string> GetFrames(string videoPath)
     {
-        var capture = new VideoCapture(videoPath);
-        var image = new Mat();
-        Console.WriteLine("Begin extracting frames from video file..");
-        List<Mat> mats = new();
-        while (capture.IsOpened())
-        {
-            // Read next frame in video file
-            capture.Read(image);
-            if (image.Empty())
-            {
-                break;
-            }
-            mats.Add(image);
-        }
-        return InputArray.Create(mats);
+        var tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+        Directory.CreateDirectory(tempDir);
+        var currentDirectory = Environment.CurrentDirectory;
+        var argument = $"-i \"{videoPath}\" \"{tempDir}\\%09d.bmp\"";
+        var p = Process.Start(Path.Combine(currentDirectory, "ffmpeg.exe"), argument);
+        p.WaitForExit();
+        return Directory.EnumerateFiles(tempDir).ToList();
     }
 }
