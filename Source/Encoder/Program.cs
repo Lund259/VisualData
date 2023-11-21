@@ -1,11 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System.Text;
+
+using FFMpegCore;
 using SimpleBase;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using ZXing.Common;
 
+var filenames = new List<string>();
 
 await using var fileStream = File.OpenRead(@"C:\Users\Jonat\Desktop\Test.txt");
 {
@@ -20,10 +22,19 @@ await using var fileStream = File.OpenRead(@"C:\Users\Jonat\Desktop\Test.txt");
             Options = new EncodingOptions
             {
                 NoPadding = true,
-                Margin = 0
+                Margin = 0,
+                Width = 166,
+                Height = 166
             }
         };
 
         using var image = barcodeWriter.Write(bytesString);
+        var fileName = $"{Guid.NewGuid()}.bmp";
+        await image.SaveAsBmpAsync(fileName);
+        
+        filenames.Add(fileName);
     }
 }
+
+FFMpeg.JoinImageSequence("joined_video.mp4", 30D, filenames.ToArray());
+filenames.ForEach(x => new FileInfo(x).Delete());

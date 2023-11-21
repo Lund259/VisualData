@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decoder", "Decoder\Decoder.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decoder.tests", "Decoder.tests\Decoder.tests.csproj", "{97EF4CFB-5239-476F-8D51-9ACB28E802E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binaries", "Binaries\Binaries.csproj", "{178C5748-EDA6-4344-ABC4-0B3DE8AD545D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97EF4CFB-5239-476F-8D51-9ACB28E802E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178C5748-EDA6-4344-ABC4-0B3DE8AD545D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178C5748-EDA6-4344-ABC4-0B3DE8AD545D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178C5748-EDA6-4344-ABC4-0B3DE8AD545D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178C5748-EDA6-4344-ABC4-0B3DE8AD545D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
