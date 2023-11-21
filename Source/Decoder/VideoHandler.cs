@@ -4,7 +4,7 @@ namespace Decoder;
 
 public class VideoHandler: IVideoHandler
 {
-    public byte[] GetFrames(string videoPath)
+    public InputArray GetFrames(string videoPath)
     {
         var capture = new VideoCapture(videoPath);
         var image = new Mat();
@@ -20,6 +20,6 @@ public class VideoHandler: IVideoHandler
             }
             mats.Add(image);
         }
-        return new byte[1];
+        return InputArray.Create(mats);
     }
 }
