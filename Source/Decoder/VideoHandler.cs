@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Drawing;
+using SimpleBase;
 using SixLabors.ImageSharp.PixelFormats;
 using ZXing;
 using ZXing.Common;
@@ -30,5 +31,10 @@ public class VideoHandler : IVideoHandler
         var binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
         var reader = new QRCodeReader();
         return reader.decode(binaryBitmap).Text;
+    }
+
+    public byte[] GetFile(string encodedData)
+    {
+        return Base85.Ascii85.Decode(encodedData);
     }
 }
