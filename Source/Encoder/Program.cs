@@ -27,10 +27,10 @@ await using var fileStream = inputFile.OpenRead();
 
     while (await fileStream.ReadAsync(buffer) > 0)
     {
-        var bytesString = buffer.Aggregate("", (current, b) => current + (char) b);
+        var charString = buffer.Aggregate("", (current, b) => current + (char) b);
         buffer = new byte[2953];
 
-        using var image = barcodeWriter.Write(bytesString);
+        using var image = barcodeWriter.Write(charString);
         var fileName = $"{Guid.NewGuid()}.bmp";
         await image.SaveAsBmpAsync(fileName);
         
