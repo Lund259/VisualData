@@ -9,9 +9,10 @@ public class IntegrationTest
     public void GetFrames_ReturnsListOfFrames_Success()
     {
         IVideoHandler handler = new VideoHandler();
-        var results = handler.GetFrames(@Path.GetFullPath("./Resources/joined_video.mp4"));
-        Assert.True(results.Count == 26);
-        foreach (var result in results)
+        var files = handler.GetFrames(@Path.GetFullPath("./Resources/joined_video.mp4"));
+        var data = handler.ReadData(files.First());
+        Assert.True(files.Count == 26 && data.Contains("6tLI^AKYQ)+D#F5FCfN86tLI^AKYQ)"));
+        foreach (var result in files)
         {
             File.Delete(result);
         }
