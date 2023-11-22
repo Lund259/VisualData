@@ -9,33 +9,32 @@ using ZXing.Common;
 
 var filenames = new List<string>();
 
+var barcodeWriter = new ZXing.ImageSharp.BarcodeWriter<Rgba32> { 
+    Format = ZXing.BarcodeFormat.QR_CODE,
+    Options = new EncodingOptions
+    {
+        NoPadding = true,
+        Margin = 0,
+        Width = 178,
+        Height = 178
+    }
+};
+
 var inputFile = new FileInfo(@"C:\Users\Jonat\Desktop\Test2.txt");
 await using var fileStream = inputFile.OpenRead();
 {
-    var buffer = new byte[2000];
+    var buffer = new byte[2953];    //Max bytesize per QRCode in this format
 
     while (await fileStream.ReadAsync(buffer) > 0)
     {
-        var bytesString = Base85.Ascii85.Encode(buffer);
-
-        var barcodeWriter = new ZXing.ImageSharp.BarcodeWriter<Rgba32> { 
-            Format = ZXing.BarcodeFormat.QR_CODE,
-            Options = new EncodingOptions
-            {
-                NoPadding = true,
-                Margin = 0,
-                Width = 166,
-                Height = 166
-            }
-        };
+        var bytesString = buffer.Aggregate("", (current, b) => current + (char) b);
+        buffer = new byte[2953];
 
         using var image = barcodeWriter.Write(bytesString);
         var fileName = $"{Guid.NewGuid()}.bmp";
         await image.SaveAsBmpAsync(fileName);
         
         filenames.Add(fileName);
-
-        buffer = new byte[2000];
     }
 }
 
